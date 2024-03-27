@@ -59,7 +59,8 @@ contact: 'team@carpentries.org' # FIXME
 
 # Order of episodes in your lesson
 episodes: 
-- introduction.Rmd
+- introduction.md
+- 01-basics.md
 
 # Information for Learners
 learners: 
@@ -76,3 +77,5 @@ profiles:
 # sandpaper and varnish versions) should live
 
 
+url: 'https://esciencecenter-digital-skills.github.io/git-lesson'
+lang: en
