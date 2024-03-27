@@ -15,10 +15,9 @@ exercises: 0
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-
-- What tools are out there?
-- What are their pros and cons?
-
+- What can I do to make my code more easily understandable?
+- What information should go into comments?
+- What are docstrings and what information should go into docstrings?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -81,305 +80,323 @@ from the command itself:
 without it,
 Git would try to use the name of the file as the commit identifier.
 
-
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-The fact that files can be reverted one by one
-tends to change the way people organize their work.
-If everything is in one large document,
-it's hard (but not impossible) to undo changes to the introduction
-without also undoing changes made later to the conclusion.
-If the introduction and conclusion are stored in separate files,
-on the other hand,
-moving backward and forward in time becomes much easier.
+In this episode we will learn how to write good documentation inside your code.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Recovering Older Versions of a File
+## Writing good comments - In-code-1: Comments
 
-Jennifer has made changes to the Python script that she has been working on for weeks, and the
-modifications she made this morning "broke" the script and it no longer runs. She has spent
-\~ 1hr trying to fix it, with no luck...
+Let's take a look at two example comments (comments in Python start with `#`):
 
-Luckily, she has been keeping track of her project's versions using Git! Which commands below will
-let her recover the last committed version of her Python script called
-`data_cruncher.py`?
+**Comment A**
 
-1. `$ git checkout HEAD`
+```python
+  # now we check if temperature is below -50
+  if temperature < -50:
+      print("ERROR: temperature is too low")
+```
 
-2. `$ git checkout HEAD data_cruncher.py`
+**Comment B**
 
-3. `$ git checkout HEAD~1 data_cruncher.py`
+```python
+  # we regard temperatures below -50 degrees as measurement errors
+  if temperature < -50:
+      print("ERROR: temperature is too low")
+```
 
-4. `$ git checkout <unique ID of last commit> data_cruncher.py`
-
-5. Both 2 and 4
+**Which of these comments is more useful? Can you explain why?**
 
 :::::::::::::::  solution
 
 ## Solution
 
-The answer is (5)-Both 2 and 4.
-
-The `checkout` command restores files from the repository, overwriting the files in your working
-directory. Answers 2 and 4 both restore the *latest* version *in the repository* of the file
-`data_cruncher.py`. Answer 2 uses `HEAD` to indicate the *latest*, whereas answer 4 uses the
-unique ID of the last commit, which is what `HEAD` means.
-
-Answer 3 gets the version of `data_cruncher.py` from the commit *before* `HEAD`, which is NOT
-what we wanted.
-
-Answer 1 can be dangerous! Without a filename, `git checkout` will restore **all files**
-in the current directory (and all directories below it) to their state at the commit specified.
-This command will restore `data_cruncher.py` to the latest commit version, but it will also
-restore *any other files that are changed* to that version, erasing any changes you may
-have made to those files!
-As discussed above, you are left in a *detached* `HEAD` state, and you don't want to be there.
-
-
++ **Comment A** describes **what** happens in this piece of code. This can be
+    useful for somebody who has never seen Python or a program, but for somebody
+    who has, it can feel like a redundant commentary.
++ **Comment B** is probably more useful as it describes **why** this piece of code
+    is there, i.e. its **purpose**.
 
 :::::::::::::::::::::::::
 
+
 ::::::::::::::::::::::::::::::::::::::::::::::::::
+## Sometimes version control is better than a comment
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Reverting a Commit
+## Examples for code comments where Git is a better solution
 
-Jennifer is collaborating with colleagues on her Python script.  She
-realizes her last commit to the project's repository contained an error, and
-wants to undo it.  Jennifer wants to undo correctly so everyone in the project's
-repository gets the correct change. The command `git revert [erroneous commit ID]` will create a
-new commit that reverses the erroneous commit.
+**Keeping zombie code** "just in case" (rather use version control):
 
-The command `git revert` is
-different from `git checkout [commit ID]` because `git checkout` returns the
-files not yet committed within the local repository to a previous state, whereas `git revert`
-reverses changes committed to the local and project repositories.
+```python
+  # do not run this code!
+  # if temperature > 0:
+  #     print("It is warm")
+```
+  Instead: Remove the code, you can always find it back in a previous version of your code in Git.
 
-Below are the right steps and explanations for Jennifer to use `git revert`,
-what is the missing command?
+**Emulating version control**:
 
-1. `________ # Look at the git history of the project to find the commit ID`
-
-2. Copy the ID (the first few characters of the ID, e.g. 0b1d055).
-
-3. `git revert [commit ID]`
-
-4. Type in the new commit message.
-
-5. Save and close
-
-:::::::::::::::  solution
-
-## Solution
-
-The command `git log` lists project history with commit IDs.
-
-The command `git show HEAD` shows changes made at the latest commit, and lists
-the commit ID; however, Jennifer should double-check it is the correct commit, and no one
-else has committed changes to the repository.
-
-
-
-:::::::::::::::::::::::::
+```python
+  # John Doe: threshold changed from 0 to 15 on August 5, 2013
+  if temperature > 15:
+      print("It is warm")
+```
+Instead: You can get this information from `git log` or `git show` or `git annotate` or similar.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+## What are "docstrings" and how can they be useful?
 
-## Understanding Workflow and History
+Here is function `fahrenheit_to_celsius` which converts temperature in
+Fahrenheit to Celsius, implemented in a couple of different languages.
+Your language is missing? Please contribute an example.
 
-What is the output of the last command in
+The first set of examples uses **regular comments**:
 
-```bash
-$ cd planets
-$ echo "Venus is beautiful and full of love" > venus.txt
-$ git add venus.txt
-$ echo "Venus is too hot to be suitable as a base" >> venus.txt
-$ git commit -m "Comment on Venus as an unsuitable base"
-$ git checkout HEAD venus.txt
-$ cat venus.txt #this will print the contents of venus.txt to the screen
+::::::::::::::: spoiler
+
+### Python
+
+```py
+# This function converts a temperature in Fahrenheit to Celsius.
+def fahrenheit_to_celsius(temp_f: float) -> float:
+    temp_c = (temp_f - 32.0) * (5.0/9.0)
+    return temp_c
 ```
 
-1. ```output
-  Venus is too hot to be suitable as a base
-  ```
-2. ```output
-  Venus is beautiful and full of love
-  ```
-3. ```output
-  Venus is beautiful and full of love
-  Venus is too hot to be suitable as a base
-  ```
-4. ```output
-  Error because you have changed venus.txt without committing the changes
-  ```
+::::::::::::::::::::::::
 
-:::::::::::::::  solution
+:::::::::::::::: spoiler
 
-## Solution
+### R
 
-The answer is 2.
-
-The command `git add venus.txt` places the current version of `venus.txt` into the staging area.
-The changes to the file from the second `echo` command are only applied to the working copy,
-not the version in the staging area.
-
-So, when `git commit -m "Comment on Venus as an unsuitable base"` is executed,
-the version of `venus.txt` committed to the repository is the one from the staging area and
-has only one line.
-
-At this time, the working copy still has the second line (and
-`git status` will show that the file is modified). However, `git checkout HEAD venus.txt`
-replaces the working copy with the most recently committed version of `venus.txt`.
-
-So, `cat venus.txt` will output
-
-```output
-Venus is beautiful and full of love.
+```r
+# Convert Fahrenheit to Celsius
+fahrenheit_to_celsius <- function(temp_f)
+{
+  temp_c <- (temp_f - 32.0) * (5.0/9.0)
+  temp_c
+}
 ```
 
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Checking Understanding of `git diff`
-
-Consider this command: `git diff HEAD~9 mars.txt`. What do you predict this command
-will do if you execute it? What happens when you do execute it? Why?
-
-Try another command, `git diff [ID] mars.txt`, where [ID] is replaced with
-the unique identifier for your most recent commit. What do you think will happen,
-and what does happen?
+::::::::::::::::::::::::
 
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::: spoiler
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+### Julia
 
-## Getting Rid of Staged Changes
-
-`git checkout` can be used to restore a previous commit when unstaged changes have
-been made, but will it also work for changes that have been staged but not committed?
-Make a change to `mars.txt`, add that change using `git add`,
-then use `git checkout` to see if you can remove your change.
-
-:::::::::::::::  solution
-
-## Solution
-
-After adding a change, `git checkout` can not be used directly.
-Let's look at the output of `git status`:
-
-```output
-On branch main
-Changes to be committed:
-  (use "git reset HEAD <file>..." to unstage)
-
-        modified:   mars.txt
-
+```julia
+# This function converts a temperature in Fahrenheit to Celsius.
+function fahrenheit_to_celsius(temp_f)
+    temp_c = (temp_f - 32.0) * (5.0/9.0)
+    return temp_c
+end
 ```
 
-Note that if you don't have the same output
-you may either have forgotten to change the file,
-or you have added it *and* committed it.
+::::::::::::::::::::::::
 
-Using the command `git checkout -- mars.txt` now does not give an error,
-but it does not restore the file either.
-Git helpfully tells us that we need to use `git reset` first
-to unstage the file:
+:::::::::::::::: spoiler
 
-```bash
-$ git reset HEAD mars.txt
+### Fortran
+
+```fortran
+! Convert Fahrenheit to Celsius
+function fahrenheit_to_celsius(temp_f) result(temp_c)
+    implicit none
+    real temp_f
+    real temp_c
+    temp_c = (temp_f - 32.0) * (5.0/9.0)
+end function
 ```
 
-```output
-Unstaged changes after reset:
-M	mars.txt
+::::::::::::::::::::::::
+
+:::::::::::::::: spoiler
+
+### Rust
+
+```rust
+// Convert Fahrenheit to Celsius
+fn fahrenheit_to_celsius(temp_f: f64) -> f64 {
+    let temp_c = (temp_f - 32.0) * 5.0 / 9.0
+    temp_c
+}
 ```
 
-Now, `git status` gives us:
+::::::::::::::::::::::::
 
-```bash
-$ git status
+:::::::::::::::: spoiler
+
+### C++
+
+```c++
+// Converts a temperature in Fahrenheit to Celsius
+double fahrenheit_to_celsius(double temp_f) {
+    auto temp_c = (temp_f - 32.0) * (5.0 / 9.0);
+    return temp_c;
+}
 ```
 
-```output
-On branch main
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git checkout -- <file>..." to discard changes in working directory)
+::::::::::::::::::::::::
 
-        modified:   mars.txt
+The second set uses **docstrings or similar concepts**. Please compare the two
+(above and below):
 
-no changes added to commit (use "git add" and/or "git commit -a")
+::::::::::::::: spoiler
+
+### Python
+
+```py
+def fahrenheit_to_celsius(temp_f: float) -> float:
+    """
+    Converts a temperature in Fahrenheit to Celsius.
+
+    Parameters
+    ----------
+    temp_f : float
+        The temperature in Fahrenheit.
+
+    Returns
+    -------
+    float
+        The temperature in Celsius.
+    """
+
+    temp_c = (temp_f - 32.0) * (5.0/9.0)
+    return temp_c
 ```
 
-This means we can now use `git checkout` to restore the file
-to the previous commit:
+::::::::::::::::::::::::
 
-```bash
-$ git checkout -- mars.txt
-$ git status
+:::::::::::::::: spoiler
+
+### R
+
+```r
+#' Convert Fahrenheit to Celsius
+#'
+#' @param temp_f A numeric vector of temperatures in Fahrenheit.
+#' @return A numeric vector of temperatures in Celsius.
+fahrenheit_to_celsius <- function(temp_f)
+{
+  temp_c <- (temp_f - 32.0) * (5.0/9.0)
+  temp_c
+}
 ```
 
-```output
-On branch main
-nothing to commit, working tree clean
+::::::::::::::::::::::::
+
+
+:::::::::::::::: spoiler
+
+### Julia
+
+```julia
+"""
+    fahrenheit_to_celsius(temp_f::Float)
+
+Converts temperature in Fahrenheit to Celsius.
+
+# Arguments
+- `temp_f::Float`: Temperature in Fahrenheit.
+
+# Returns
+- `temp_c::Float`: Temperature in Celsius.
+"""
+function fahrenheit_to_celsius(temp_f)
+    temp_c = (temp_f - 32.0) * (5.0/9.0)
+    return temp_c
+end
 ```
 
-:::::::::::::::::::::::::
+::::::::::::::::::::::::
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::: spoiler
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+### Fortran
 
-## Explore and Summarize Histories
-
-Exploring history is an important part of Git, and often it is a challenge to find
-the right commit ID, especially if the commit is from several months ago.
-
-Imagine the `planets` project has more than 50 files.
-You would like to find a commit that modifies some specific text in `mars.txt`.
-When you type `git log`, a very long list appeared.
-How can you narrow down the search?
-
-Recall that the `git diff` command allows us to explore one specific file,
-e.g., `git diff mars.txt`. We can apply a similar idea here.
-
-```bash
-$ git log mars.txt
+```fortran
+!> @brief Convert Fahrenheit to Celsius
+!! @param temp_f Temperature in Fahrenheit
+!! @return Temperature in Celsius
+function fahrenheit_to_celsius(temp_f) result(temp_c)
+    implicit none
+    real temp_f
+    real temp_c
+    temp_c = (temp_f - 32.0) * (5.0/9.0)
+end function
 ```
 
-Unfortunately some of these commit messages are very ambiguous, e.g., `update files`.
-How can you search through these files?
+::::::::::::::::::::::::
 
-Both `git diff` and `git log` are very useful and they summarize a different part of the history
-for you.
-Is it possible to combine both? Let's try the following:
+:::::::::::::::: spoiler
 
-```bash
-$ git log --patch mars.txt
+### Rust
+
+```rust
+/// Convert Fahrenheit to Celsius
+/// # Arguments
+/// * `temp_f` - Temperature in Fahrenheit
+///
+/// # Returns
+/// * `temp_c` - Temperature in Celsius
+fn fahrenheit_to_celsius(temp_f: f64) -> f64 {
+    let temp_c = (temp_f - 32.0) * 5.0 / 9.0
+    temp_c
+}
 ```
 
-You should get a long list of output, and you should be able to see both commit messages and
-the difference between each commit.
+::::::::::::::::::::::::
 
-Question: What does the following command do?
+:::::::::::::::: spoiler
 
-```bash
-$ git log --patch HEAD~9 *.txt
+### C++
+
+```c++
+// @brief: Converts a temperature in Fahrenheit to Celsius
+//
+// @param: temp_f: Temperature in Fahrenheit
+//
+// @return: Temperature in Celsius
+double fahrenheit_to_celsius(double temp_f) {
+    auto temp_c = (temp_f - 32.0) * (5.0 / 9.0);
+    return temp_c;
+}
 ```
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::
+
+Docstrings can do a bit more than just comments:
+- Tools can generate help text automatically from the docstrings.
+- Tools can generate documentation pages automatically from code.
+
+It is common to write docstrings for functions, classes, and modules.
+
+Good docstrings describe:
+- What the function does
+- What goes in (including the type of the input variables)
+- What goes out (including the return type)
+
+**Naming is documentation**:
+Giving explicit, descriptive names to your code segments (functions, classes,
+variables) already provides very useful and important documentation. In
+practice you will find that for simple functions it is unnecessary to add a
+docstring when the function name and variable names already give enough
+information.
+
+
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- `git diff` displays differences between commits.
-- `git checkout` recovers old versions of files.
+- Comments should describe the why for your code not the what.
+- Writing docstrings can be a good way to write documentation while you type
+  code since it also makes it possible
+  to query that information from outside the code or to auto-generate
+  documentation pages.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
