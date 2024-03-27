@@ -63,7 +63,7 @@ episodes:
 - 02-setup.md
 - 03-create.md
 - 04-changes.md
-- 05-history.md
+- 05-documentation.md
 - 06-ignore.md
 - 07-github.md
 - 08-collab.md
@@ -75,13 +75,13 @@ episodes:
 - 14-supplemental-rstudio.md
 
 # Information for Learners
-learners: 
+learners:
 
 # Information for Instructors
-instructors: 
+instructors:
 
 # Learner Profiles
-profiles: 
+profiles:
 
 # Customisation ---------------------------------------------
 #
