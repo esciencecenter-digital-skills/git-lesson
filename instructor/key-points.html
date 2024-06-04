@@ -186,7 +186,7 @@
 <div class="accordion accordion-flush" id="accordionFlush2">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading2">
-        <a href="introduction.html">1. Using RMarkdown</a>
+        <a href="01-basics.html">1. Automated Version Control</a>
     </div>
 <!--/div.accordion-header-->
         
@@ -198,7 +198,7 @@
 <div class="accordion accordion-flush" id="accordionFlush3">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading3">
-        <a href="01-basics.html">2. Automated Version Control</a>
+        <a href="02-setup.html">2. Setting Up Git</a>
     </div>
 <!--/div.accordion-header-->
         
@@ -210,7 +210,7 @@
 <div class="accordion accordion-flush" id="accordionFlush4">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading4">
-        <a href="03-collaborative-git-centralized.html">3. Collaborative Version Control - Centralized</a>
+        <a href="03-create.html">3. Creating a Repository</a>
     </div>
 <!--/div.accordion-header-->
         
@@ -222,7 +222,67 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="03-collaborative-git-distributed.html">4. Collaborative Version Control - Distributed</a>
+        <a href="04-changes.html">4. Tracking Changes</a>
+    </div>
+<!--/div.accordion-header-->
+        
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush6">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading6">
+        <a href="05-history.html">5. Exploring History</a>
+    </div>
+<!--/div.accordion-header-->
+        
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush7">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading7">
+        <a href="06-ignore.html">6. Ignoring Things</a>
+    </div>
+<!--/div.accordion-header-->
+        
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush8">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading8">
+        <a href="07-github.html">7. Remotes in GitHub</a>
+    </div>
+<!--/div.accordion-header-->
+        
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush9">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading9">
+        <a href="08-collab-centralized.html">8. Collaborative Version Control - Centralized</a>
+    </div>
+<!--/div.accordion-header-->
+        
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush10">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading10">
+        <a href="09-collab-distributed.html">9. Collaborative Version Control - Distributed</a>
     </div>
 <!--/div.accordion-header-->
         
@@ -286,30 +346,70 @@
     <main id="main-content" class="main-content"><div class="container lesson-content">
         
         
-<section id="introduction"><h2 class="section-heading"><a href="introduction.html">Using RMarkdown</a></h2>
-<hr class="half-width">
-<ul>
-<li>Use <code>.md</code> files for episodes when you want static
-content</li>
-<li>Use <code>.Rmd</code> files for episodes when you need to generate
-output</li>
-<li>Run <code>sandpaper::check_lesson()</code> to identify any issues
-with your lesson</li>
-<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson
-locally</li>
-</ul></section><section id="01-basics"><h2 class="section-heading"><a href="01-basics.html">Automated Version Control</a></h2>
+<section id="01-basics"><h2 class="section-heading"><a href="01-basics.html">Automated Version Control</a></h2>
 <hr class="half-width">
 <ul>
 <li>Version control is like an unlimited ‘undo’.</li>
 <li>Version control also allows many people to work in parallel.</li>
-</ul></section><section id="03-collaborative-git-centralized"><h2 class="section-heading"><a href="03-collaborative-git-centralized.html">Collaborative Version Control - Centralized</a></h2>
+</ul></section><section id="02-setup"><h2 class="section-heading"><a href="02-setup.html">Setting Up Git</a></h2>
+<hr class="half-width">
+<ul>
+<li>Use <code>git config</code> with the <code>--global</code> option to
+configure a user name, email address, editor, and other preferences once
+per machine.</li>
+</ul></section><section id="03-create"><h2 class="section-heading"><a href="03-create.html">Creating a Repository</a></h2>
+<hr class="half-width">
+<ul>
+<li>
+<code>git init</code> initializes a repository.</li>
+<li>Git stores all of its repository data in the <code>.git</code>
+directory.</li>
+</ul></section><section id="04-changes"><h2 class="section-heading"><a href="04-changes.html">Tracking Changes</a></h2>
+<hr class="half-width">
+<ul>
+<li>
+<code>git status</code> shows the status of a repository.</li>
+<li>Files can be stored in a project’s working directory (which users
+see), the staging area (where the next commit is being built up) and the
+local repository (where commits are permanently recorded).</li>
+<li>
+<code>git add</code> puts files in the staging area.</li>
+<li>
+<code>git commit</code> saves the staged content as a new commit in
+the local repository.</li>
+<li>Write a commit message that accurately describes your changes.</li>
+</ul></section><section id="05-history"><h2 class="section-heading"><a href="05-history.html">Exploring History</a></h2>
+<hr class="half-width">
+<ul>
+<li>
+<code>git diff</code> displays differences between commits.</li>
+<li>
+<code>git checkout</code> recovers old versions of files.</li>
+</ul></section><section id="06-ignore"><h2 class="section-heading"><a href="06-ignore.html">Ignoring Things</a></h2>
+<hr class="half-width">
+<ul>
+<li>The <code>.gitignore</code> file tells Git what files to
+ignore.</li>
+</ul></section><section id="07-github"><h2 class="section-heading"><a href="07-github.html">Remotes in GitHub</a></h2>
+<hr class="half-width">
+<ul>
+<li>A local Git repository can be connected to one or more remote
+repositories.</li>
+<li>Use the SSH protocol to connect to remote repositories.</li>
+<li>
+<code>git push</code> copies changes from a local repository to a
+remote repository.</li>
+<li>
+<code>git pull</code> copies changes from a remote repository to a
+local repository.</li>
+</ul></section><section id="08-collab-centralized"><h2 class="section-heading"><a href="08-collab-centralized.html">Collaborative Version Control - Centralized</a></h2>
 <hr class="half-width">
 <ul>
 <li>Git and Github are superpowerful, not just for version control, but
 as tools for collaborative development</li>
 <li>Do code reviews and be constructive in them!</li>
 <li>Use centralized flow for internal collaborations</li>
-</ul></section><section id="03-collaborative-git-distributed"><h2 class="section-heading"><a href="03-collaborative-git-distributed.html">Collaborative Version Control - Distributed</a></h2>
+</ul></section><section id="09-collab-distributed"><h2 class="section-heading"><a href="09-collab-distributed.html">Collaborative Version Control - Distributed</a></h2>
 <hr class="half-width">
 <ul>
 <li>Use distributed flow for external collaborations</li>
