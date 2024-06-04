@@ -60,10 +60,15 @@ contact: 'training@esciencecenter.nl'
 # Order of episodes in your lesson
 
 episodes: 
-- introduction.md
 - 01-basics.md
-- 03-collaborative-git-centralized.md
-- 03-collaborative-git-distributed.md
+- 02-setup.md
+- 03-create.md
+- 04-changes.md
+- 05-history.md
+- 06-ignore.md
+- 07-github.md  
+- 08-collab-centralized.md
+- 09-collab-distributed.md
 
 # Information for Learners
 learners:
