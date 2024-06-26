@@ -345,7 +345,7 @@ repository gets the correct change. The command `git revert [erroneous commit ID
 new commit that reverses the erroneous commit.
 
 The command `git revert` is
-different from `git restore [commit ID]` because `git restore` returns the
+different from `git restore -s [commit ID]` because `git restore` returns the
 files not yet committed within the local repository to a previous state, whereas `git revert`
 reverses changes committed to the local and project repositories.
 
