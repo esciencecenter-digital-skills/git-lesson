@@ -21,6 +21,15 @@ exercises: 0
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+:::::::::::::::::::::::::::::::::::::::: instructor
+There are no specific slides for this episode. You could consider keeping the slides open to the episode on the basics of Git, to show the visual representation of the changes in the repository.
+
+Consider doing this episode as a demo and not going into the details. The aim is to demonstrate to participants the possiblity to go back and forth through the git log, which is enough for an introduction to git. In practice you only use this occasionally. 
+
+Make use of git switch and git restore instead of the confusing git checkout. This is probably much clearer for participants. We haven't tried this yet and it is not in the training material, so you have to do some pioneering.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 As we saw in the previous episode, we can refer to commits by their
 identifiers.  You can refer to the *most recent commit* of the working
 directory by using the identifier `HEAD`.
@@ -300,7 +309,7 @@ recent commit (`HEAD~1`), which is commit `f22b25e`:
 So, to put it all together,
 here's how Git works in cartoon form:
 
-![https://figshare.com/articles/How_Git_works_a_cartoon/1328266](fig/git_staging.svg)
+![https://figshare.com/articles/How_Git_works_a_cartoon/1328266](fig/git_staging.svg){alt='Git Staging'}
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 

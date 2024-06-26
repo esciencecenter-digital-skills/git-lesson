@@ -18,7 +18,7 @@ exercises: 60
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-::: instructor
+::::::::::::::::::::::::::::::::::::::: instructor
 Teaching is done as a pair of instructors. 
 Instructor A acts as the owner of the repository, instructor B as a collaborator (internal or external).
 
@@ -32,7 +32,8 @@ Now we show distributed workflow. All in the browser using Github:
 * Instructor B implements the changes
 * Instructor A merges the pull request
 * Use Github repo’s insights -> network to visualize what just happened 
-:::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::: challenge
 

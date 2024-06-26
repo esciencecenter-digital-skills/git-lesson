@@ -1,6 +1,6 @@
 ---
 title: Creating a Repository
-teaching: 10
+teaching: 15
 exercises: 0
 ---
 
@@ -17,8 +17,13 @@ exercises: 0
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Once Git is configured,
-we can start using it.
+:::::::::::::::::::::::::::::::::::::::: instructor
+Introduce here the story of Wolfman and Dracula. we all feel it is a bit silly example, but it suits the purpose.
+Here we suggest referring to 'The Holy Realms of Git' slide: https://lyashevska.github.io/ds-cr-slides/git/#/0/5 to introduce the idea of repository and .git.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Once Git is configured, we can start using it.
 
 We will continue with the story of Wolfman and Dracula who are investigating if it
 is possible to send a planetary lander to Mars.

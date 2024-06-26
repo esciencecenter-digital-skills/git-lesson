@@ -1,6 +1,6 @@
 ---
 title: Ignoring Things
-teaching: 5
+teaching: 10
 exercises: 0
 ---
 
@@ -14,6 +14,11 @@ exercises: 0
 :::::::::::::::::::::::::::::::::::::::: questions
 
 - How can I tell Git to ignore files I don't want to track?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: instructor
+There are no slides associated with this episode. Focus on the main concept of ignoring files with a .gitignore file, instead of fully learning the syntax. 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
