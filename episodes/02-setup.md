@@ -1,6 +1,6 @@
 ---
 title: Setting Up Git
-teaching: 5
+teaching: 10
 exercises: 0
 ---
 
@@ -14,6 +14,12 @@ exercises: 0
 :::::::::::::::::::::::::::::::::::::::: questions
 
 - How do I get set up to use Git?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: instructor
+
+There are no slides for this episode. Explain what a command line is, why it is useful, and why we use it in this workshop. Participants are often new to the command line and don't get why we not use a git gui. Only focus on the bare essentials for setting up git. We shall use nano editor so that everyone is on the same page.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

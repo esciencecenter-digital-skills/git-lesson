@@ -1,6 +1,6 @@
 ---
 title: Tracking Changes
-teaching: 20
+teaching: 25
 exercises: 0
 ---
 
@@ -18,6 +18,12 @@ exercises: 0
 - How do I check the status of my version control repository?
 - How do I record notes about what changes I made and why?
 
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: instructor
+We suggest to use slides. From slide 5 onwards:
+https://lyashevska.github.io/ds-cr-slides/git/#/0/5
+Especially for this episode it would be best to have both the live coding screen and the slides screen side by side. it is best to switch back and forth between command line and slides when necessary.
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 First let's make sure we're still in the right directory.
