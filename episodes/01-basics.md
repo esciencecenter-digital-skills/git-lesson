@@ -18,7 +18,7 @@ exercises: 0
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::: instructor
-Lesson material: https://swcarpentry.github.io/git-novice/ with our modifications.
+Original lesson material: https://swcarpentry.github.io/git-novice/ 
 Slides: https://github.com/lyashevska/ds-cr-slides/git, until https://lyashevska.github.io/ds-cr-slides/git/#/0/4.
 Please note that slides will be deployed in the 'right place' in due time. Right now nobody knows where that is.
 
