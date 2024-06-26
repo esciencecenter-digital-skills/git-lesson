@@ -1,7 +1,7 @@
 
 ---
 title: Collaborative Version Control - Centralized
-teaching: 50
+teaching: 60
 exercises: 60
 ---
 
@@ -19,7 +19,8 @@ exercises: 60
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-::: instructor
+:::::::::::::::::::::::::::::::::::::::::::::::::: instructor
+
 Teaching is done as a pair of instructors. 
 Instructor A acts as the owner of the repository, instructor B as a collaborator (internal or external).
 
@@ -34,7 +35,7 @@ First we show the centralized workflow all in the browser using Github:
 * Instructor B merges the pull request. 
 * Use Github repo’s insights -> network to visualize what just happened 
 
-:::
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::: challenge
 
