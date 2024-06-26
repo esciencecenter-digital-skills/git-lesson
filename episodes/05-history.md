@@ -253,7 +253,7 @@ the commit in which we made the change we're trying to discard.
 In the example below, we want to retrieve the state from before the most
 recent commit (`HEAD~1`), which is commit `f22b25e`:
 
-![](fig/git-checkout.svg){alt='Git Checkout'}
+![](fig/git-restore.svg){alt='Git Restore'}
 
 So, to put it all together,
 here's how Git works in cartoon form:
