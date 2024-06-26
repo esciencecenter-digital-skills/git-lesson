@@ -231,8 +231,9 @@ $ git status
 
 ```output
 On branch main
-Changes to be committed:
-  (use "git reset HEAD <file>..." to unstage)
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
 
     modified:   mars.txt
 
@@ -468,7 +469,7 @@ Let's look at the output of `git status`:
 ```output
 On branch main
 Changes to be committed:
-  (use "git reset HEAD <file>..." to unstage)
+  (use "git restore --staged <file>..." to unstage)
 
         modified:   mars.txt
 
@@ -480,16 +481,11 @@ or you have added it *and* committed it.
 
 Using the command `git restore mars.txt` now does not give an error,
 but it does not restore the file either.
-Git helpfully tells us that we need to use `git reset` first
+Git helpfully tells us that we need to use `git restore --staged` instead
 to unstage the file:
 
 ```bash
-$ git reset HEAD mars.txt
-```
-
-```output
-Unstaged changes after reset:
-M	mars.txt
+$ git restore --staged mars.txt
 ```
 
 Now, `git status` gives us:
