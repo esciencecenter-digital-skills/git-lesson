@@ -420,10 +420,11 @@ ID2 are commit identifiers (e.g. `git diff a3bf1e5..041e637`) will show the diff
 between those two commits.
 
 The right-most button lets you view all of the files in the repository at the time of that
-commit. To do this in the shell, we'd need to checkout the repository at that particular time.
-We can do this with `git checkout ID` where ID is the identifier of the commit we want to
-look at. If we do this, we need to remember to put the repository back to the right state
-afterwards!
+commit. To do this in the shell, we'd need to restore the files in the repository to that particular
+time. We can do this with `git restore -s ID <files>` where ID is the identifier of the commit
+we want to look at, and `<files>` is the list of files we want to view. To view all files at
+at the time of that commit, you can use `git restore -s ID .`. If we do this, we need to
+remember to put the repository back to the right state afterwards!
 
 
 
