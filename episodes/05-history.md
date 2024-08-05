@@ -211,7 +211,7 @@ In this case,
 we're telling Git that we want to recover the version of the file recorded in `HEAD`,
 which is the last saved commit.
 If we want to go back even further,
-we can use a commit identifier instead:
+we can use the 'source' flag `-s` to specify a commit identifier instead:
 
 ```bash
 $ git restore -s f22b25e mars.txt
