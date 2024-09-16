@@ -2,30 +2,21 @@
 title: Setup
 ---
 
-FIXME: Setup instructions live in this document. Please specify the tools and
-the data sets the Learner needs to have installed.
+## Prerequisites
 
-## Data Sets
+In this lesson we use Git from the Unix Shell. Some previous experience with the shell is expected, but isn’t mandatory.
 
-<!--
-FIXME: place any data you want learners to use in `episodes/data` and then use
-       a relative link ( [data zip file](data/lesson-data.zip) ) to provide a
-       link to it, replacing the example.com link.
--->
-Download the [data zip file](https://example.com/FIXME) and unzip it to your Desktop
+## Computer
+
+Participants must work on a computer with a Mac, Linux, or Windows operating system (not a tablet, Chromebook, etc.) on which they have administrative privileges.
 
 ## Software Setup
 
-::::::::::::::::::::::::::::::::::::::: discussion
+To participate in this workshop, you will need to prepare the following (if you haven't already):
 
-### Details
-
-Setup for different systems can be presented in dropdown menus via a `spoiler`
-tag. They will join to this discussion block, so you can give a general overview
-of the software used in this lesson here and fill out the individual operating
-systems (and potentially add more, e.g. online setup) in the solutions blocks.
-
-:::::::::::::::::::::::::::::::::::::::::::::::::::
+1. Install Shell and Git. Please refer to this page for installation instructions.
+2. Create a GitHub account. Please refer to this page for instructions.
+3. Set up an SSH connection to GitHub. Please refer to this page for instructions.
 
 :::::::::::::::: spoiler
 
