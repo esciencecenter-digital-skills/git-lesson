@@ -19,7 +19,7 @@ exercises: 0
 
 :::::::::::::::::::::::::::::::::::::::: instructor
 Introduce here the story of Wolfman and Dracula. we all feel it is a bit silly example, but it suits the purpose.
-Here we suggest referring to 'The Holy Realms of Git' slide: https://lyashevska.github.io/ds-cr-slides/git/#/0/5 to introduce the idea of repository and .git.
+Here we suggest referring to 'The Holy Realms of Git' slide: https://esciencecenter-digital-skills.github.io/digital-skills-slides/modules/git-lesson/git-slides#/5 to introduce the idea of repository and .git.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

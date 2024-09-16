@@ -22,7 +22,7 @@ exercises: 0
 
 :::::::::::::::::::::::::::::::::::::::: instructor
 We suggest to use slides. From slide 5 onwards:
-https://lyashevska.github.io/ds-cr-slides/git/#/0/5
+https://esciencecenter-digital-skills.github.io/digital-skills-slides/modules/git-lesson/git-slides#/5
 Please switch back and forth between command line and slides when necessary.
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
