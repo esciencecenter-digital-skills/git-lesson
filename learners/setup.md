@@ -41,17 +41,9 @@ You will need an account for [GitHub](https://github.com/) to follow episodes 7,
 3. Configure GitHub authentication.
 
 You must authenticate before you can access certain resources on GitHub.
-Each way of accessing GitHub supports different authentication method. For example, you can authenticate with GitHub via browser using two-factor authentication (2FA), or you can authenticate with GitHub via the command line using Secure Shell Protocol (SSH). In our lesson we shall use both.
+Each way of accessing GitHub supports different authentication method. For example, you can authenticate with GitHub via the command line using Secure Shell Protocol (SSH) or you can authenticate with GitHub via browser using two-factor authentication (2FA). In our lesson we shall use both.
 
 :::tab
-
-### 2FA 
-
-To set up 2FA for your GitHub account, follow these steps:
-
-1. If you already use an authenticator app, like [Google Authenticator](https://support.google.com/accounts/answer/1066447?hl=en&co=GENIE.Platform%3DiOS&oco=0) on your smartphone for example, add GitHub to that app.
-2. If you have access to a smartphone but do not already use an authenticator app, install one and add GitHub to the app.
-3. Optionally, you can add a passkey to your account. Passkeys are similar to security keys. However, passkeys satisfy both password and 2FA requirements, so you can sign in to your account in one step.
 
 ### SSH   
 
@@ -73,12 +65,41 @@ Then check the directory listing to see if you already have a public SSH key. By
     id_ed25519.pub
 ```
 
-If you receive an error that ~/.ssh does not exist, you do not have an existing SSH key pair in the default location. You can create a new SSH key pair in the next step.
+If you receive an error that ~/.ssh does not exist, you do not have an existing SSH key pair in the default location. You can create a new SSH key pair in the next step. If you do have an existing SSH key pair, you can skip the next step.
 
-2. Either generate a new SSH key or upload an existing key.
+2. Generate a new SSH key.
 
-- If you don't have a supported public and private key pair, or don't wish to use any that are available, generate a new SSH key.
-- 
+```bash
+ssh-keygen -t ed25519 -C "your_email@example.com"
+```
+When you're prompted to "Enter a file in which to save the key", you can press Enter to accept the default file location. 
+
+3. Add your SSH key to the ssh-agent.
+
+```bash
+# Start the ssh-agent in the background
+eval "$(ssh-agent -s)"
+# Add your SSH private key to the ssh-agent
+ssh-add ~/.ssh/id_ed25519
+```
+
+4. Add SSH Key to GitHub Account
+
+Finally, you need to add your SSH key to your GitHub account. To do this, you need to copy the SSH key to your clipboard. You can do this by running the following command:
+
+```bash     
+cat ~/.ssh/id_ed25519.pub
+```
+
+Then, copy the output to your clipboard. Next, navigate to your GitHub account settings, and click on SSH and GPG keys. Click on the New SSH key button, and paste your key into the Key field. Click Add SSH key to add your key to your GitHub account.
+
+### 2FA 
+
+To set up 2FA for your GitHub account, follow these steps:
+
+1. If you already use an authenticator app, like [Google Authenticator](https://support.google.com/accounts/answer/1066447?hl=en&co=GENIE.Platform%3DiOS&oco=0) on your smartphone for example, add GitHub to that app.
+2. If you have access to a smartphone but do not already use an authenticator app, install one and add GitHub to the app.
+3. Optionally, you can add a passkey to your account. Passkeys are similar to security keys. However, passkeys satisfy both password and 2FA requirements, so you can sign in to your account in one step.
 
 :::
 
