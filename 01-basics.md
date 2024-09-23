@@ -19,7 +19,7 @@ exercises: 0
 
 ::::::::::::::::::::::::::::::::::::::::: instructor
 Original lesson material: https://swcarpentry.github.io/git-novice/ 
-Slides: https://github.com/lyashevska/ds-cr-slides/git, until https://lyashevska.github.io/ds-cr-slides/git/#/0/4.
+Slides: https://esciencecenter-digital-skills.github.io/digital-skills-slides/modules/git-lesson/git-slides, until https://esciencecenter-digital-skills.github.io/digital-skills-slides/modules/git-lesson/git-slides#/4.
 Please note that slides will be deployed in the 'right place' in due time. Right now nobody knows where that is.
 
 The slides provide visual context to the concepts that are used in the live coding. It would be best to have both the live coding screen and the slides screen side by side. As this is in general not possible, it is best to switch back and forth between command line and slides when necessary (you can use the images in the teaching material as indication when to switch to the slides).
