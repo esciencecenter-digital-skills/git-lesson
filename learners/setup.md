@@ -40,7 +40,7 @@ Configure multifactor authentication (see below).Debian/Ubuntu run sudo apt-get 
 You will need an account for [GitHub](https://github.com/) to follow episodes 7, 8, 9 in this lesson.
 
 1. To sign up for an account, navigate to https://github.com/ and follow the prompts.
-2. Verify your email address with GitHub.
+2. Verify your email address.
 3. Configure two-factor authentication.
    
 Two-factor authentication, or 2FA, is an extra layer of security used when logging into websites or apps. It is strongly adviced to configure 2FA.
@@ -56,7 +56,7 @@ Refer to the GitHub [documentation](https://docs.github.com/en/authentication/se
 
 Please refer to [this page](https://coderefinery.github.io/installation/ssh/) for instructions.
 
-#### To confirm that everything works
+#### Confirm that everything works
 
 You should now be able to open a terminal window and execute the following commands:
 
@@ -68,7 +68,7 @@ $ git --version
 returning (something similar to):
 
 ```bash
-git version 2.34.1https://github.com/swcarpentry/git-novice/blob/main/learners/setup.md
+git version 2.34.1
 ```
 
 #### Github account & SSH connection
@@ -77,7 +77,7 @@ git version 2.34.1https://github.com/swcarpentry/git-novice/blob/main/learners/s
 ssh git@github.com
 ```
 
-which will return:
+which will return:training@esciencecenter.nl 
 
 ```bash
 Hi [username]! You've successfully authenticated, but GitHub does not provide shell access.
@@ -86,4 +86,4 @@ Connection to github.com closed.
 
 ### If something does not work
 
-Follow the corresponding setup instructions. If you still need help, send us an email at training@esciencecenter.nl.
+Follow the corresponding setup instructions. If you still need help, send us an [email](training@esciencecenter.nl).
