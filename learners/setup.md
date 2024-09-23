@@ -18,7 +18,7 @@ To participate in this workshop, you will need to prepare the following (if you 
 
 #### Install Shell and Git. 
    
-::: tab
+:::tab
 
 ### Windows
 Git should be installed on your computer as part of your Bash install.
@@ -28,33 +28,62 @@ Git should be installed on your computer as part of your Bash install.
 Mac
 
 ### Linux
-If Git is not already available on your machine you can install it via your distro's package manager. For Go to https://github.com and follow the “Sign up” link at the top-right of the window.
-Follow the instructions to create an account.
-Verify your email address with GitHub.
-Configure multifactor authentication (see below).Debian/Ubuntu run sudo apt-get install git and for Fedora run sudo dnf install git.
+If Git is not already available on your machine you can install it via your distro's package manager. Debian/Ubuntu run 'sudo apt-get install git' and for Fedora run 'sudo dnf install git'.
 
 :::
   
-#### Create a GitHub account. 
+#### Setup GitHub 
 
 You will need an account for [GitHub](https://github.com/) to follow episodes 7, 8, 9 in this lesson.
 
 1. To sign up for an account, navigate to https://github.com/ and follow the prompts.
 2. Verify your email address.
-3. Configure two-factor authentication.
-   
-Two-factor authentication, or 2FA, is an extra layer of security used when logging into websites or apps. It is strongly adviced to configure 2FA.
-The steps are summarised below:
+3. Configure GitHub authentication.
+
+You must authenticate before you can access certain resources on GitHub.
+Each way of accessing GitHub supports different authentication method. For example, you can authenticate with GitHub via browser using two-factor authentication (2FA), or you can authenticate with GitHub via the command line using Secure Shell Protocol (SSH). In our lesson we shall use both.
+
+:::tab
+
+### 2FA 
+
+To set up 2FA for your GitHub account, follow these steps:
 
 1. If you already use an authenticator app, like [Google Authenticator](https://support.google.com/accounts/answer/1066447?hl=en&co=GENIE.Platform%3DiOS&oco=0) on your smartphone for example, add GitHub to that app.
 2. If you have access to a smartphone but do not already use an authenticator app, install one and add GitHub to the app.
-3. Optionally, you can add a passkey to your account. Passkeys are similar to security keys. However, passkeys satisfy both password and 2FA requirements, so you can sign in to your account in one step. 
+3. Optionally, you can add a passkey to your account. Passkeys are similar to security keys. However, passkeys satisfy both password and 2FA requirements, so you can sign in to your account in one step.
 
-Refer to the GitHub [documentation](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication) for more details about configuring 2FA.
+### SSH   
 
-#### Set up an SSH connection to GitHub. 
+To set up SSH for your GitHub account, follow these steps:
 
-Please refer to [this page](https://coderefinery.github.io/installation/ssh/) for instructions.
+1. Generate an SSH public/private keypair on your local machine if you don't already have one.
+
+To check your local machine for existing SSH keys, run the following command in the terminal:
+
+```bash
+    ls -al ~/.ssh
+```
+
+Then check the directory listing to see if you already have a public SSH key. By default, the filenames of supported public keys for GitHub are one of the following.
+
+```bash
+    id_rsa.pub
+    id_ecdsa.pub
+    id_ed25519.pub
+```
+
+If you receive an error that ~/.ssh does not exist, you do not have an existing SSH key pair in the default location. You can create a new SSH key pair in the next step.
+
+2. Either generate a new SSH key or upload an existing key.
+
+- If you don't have a supported public and private key pair, or don't wish to use any that are available, generate a new SSH key.
+- 
+
+:::
+
+Refer to the GitHub [documentation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github) for more details about authentication.
+
 
 #### Confirm that everything works
 
@@ -65,21 +94,21 @@ You should now be able to open a terminal window and execute the following comma
 ```bash
 $ git --version
 ```
-returning (something similar to):
+which will return (something similar to):
 
 ```bash
 git version 2.34.1
 ```
 
-#### Github account & SSH connection
+#### Github accreturningount & SSH connection
 
 ```bash
 ssh git@github.com
 ```
 
-which will return:training@esciencecenter.nl 
+which will return:
 
-```bash
+```bashreturning
 Hi [username]! You've successfully authenticated, but GitHub does not provide shell access.
 Connection to github.com closed.
 ```
